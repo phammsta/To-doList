@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>To-be-done</h1>
+
+        <div>
+            <input class="inputstyle" type="text" id="todoInput">
+            <button onclick="addTodo()">+</button>
+            <br></br>
+        </div>
+
+        <div class="lines"></div>
+    <div class="threebuttons">
+        <button id="showall" class="threeButtons" onclick="showAll()" >All</button>
+        <button id="showdone" class="threeButtons" onclick="showDone()" >Done</button>
+        <button id="showundone" class="threeButtons" onclick="showUndone()">Not Done</button>
+    </div>
+        <br></br>
+        <div id="resultArea"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
