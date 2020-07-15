@@ -88,8 +88,11 @@ const showAll = () => {
 
 const initialize = () => {
   let dataFromLocalStorage = JSON.parse(localStorage.getItem('todoList'))
-  render(dataFromLocalStorage)
-  todoList = dataFromLocalStorage
+  if(dataFromLocalStorage){
+    todoList = dataFromLocalStorage
+     render(todoList)
+  }
+ 
 } 
 
 initialize()
