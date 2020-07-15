@@ -10,8 +10,9 @@ const addTodo = () => {
   let itemTodo = { contents: todo, complete: false, }
   document.getElementById('todoInput').value = ``
   todoList.push(itemTodo)
-  console.log(todoList)
+  localStorage.setItem('todoList',JSON.stringify(todoList))
   render(todoList)
+
 }
 
 const toggleDone = (index) => {
@@ -21,11 +22,8 @@ const toggleDone = (index) => {
   //     todoList[index].complete = true
   // }
 
-
   todoList[index].complete = !todoList[index].complete
-
-
-  console.log(todoList)
+  localStorage.setItem('todoList',JSON.stringify(todoList))
   showAllButton.classList.add("highlight");
   doneButton.classList.remove("highlight");
   unDoneButton.classList.remove("highlight");
@@ -46,11 +44,13 @@ const render = (array) => {
     })
     .join("");
   document.getElementById("resultArea").innerHTML = todoHTML;
+  
 };
+
 
 const remove = (index) => {
   todoList.splice(index, 1)
-  console.log(todoList)
+  localStorage.setItem('todoList',JSON.stringify(todoList))
   render(todoList)
 }
 
@@ -86,3 +86,10 @@ const showAll = () => {
   unDoneButton.classList.remove("highlight");
 }
 
+const initialize = () => {
+  let dataFromLocalStorage = JSON.parse(localStorage.getItem('todoList'))
+  render(dataFromLocalStorage)
+  todoList = dataFromLocalStorage
+} 
+
+initialize()
